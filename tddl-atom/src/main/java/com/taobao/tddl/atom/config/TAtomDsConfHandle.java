@@ -94,12 +94,9 @@ public class TAtomDsConfHandle extends AbstractLifecycle implements Lifecycle {
             throw new TddlException(ErrorCode.ERR_CONFIG_MISS_ATOM_CONFIG, this.dbKey, "appName or dbKey");
         }
         // 2.配置dbConfManager
-        AtomConfigManager defaultDbConfManager = new AtomConfigManager();
-        defaultDbConfManager.setGlobalConfigDataId(TAtomConstants.getGlobalDataId(this.dbKey));
-        defaultDbConfManager.setAppConfigDataId(TAtomConstants.getAppDataId(this.appName, this.dbKey));
-        defaultDbConfManager.setUnitName(unitName);
+        AtomConfigManager0 defaultDbConfManager = new AtomConfigManager0(this.dbKey, this.appName, unitName);
         // 初始化dbConfManager
-        defaultDbConfManager.init(appName);
+//        defaultDbConfManager.init(appName); todo 直接构造函数里初始化
         dbConfManager = defaultDbConfManager;
         // 3.获取全局配置
         String globaConfStr = dbConfManager.getGlobalDbConf();
@@ -231,16 +228,15 @@ public class TAtomDsConfHandle extends AbstractLifecycle implements Lifecycle {
 
     /**
      * 全局配置监听,全局配置发生变化， 需要重新FLUSH数据源
-     * 
-     * @param defaultDbConfManager
+     *
      */
     private void registerGlobaDbConfListener(DbConfManager dbConfManager) {
-        dbConfManager.registerGlobaDbConfListener(new ConfigDataListener() {
+        dbConfManager.registerGlobalDbConfListener(new ConfigDataListener() {
 
             @Override
             public void onDataRecieved(String dataId, String data) {
                 LoggerInit.TDDL_DYNAMIC_CONFIG.info("[DRUID GlobaConf HandleData] dataId : " + dataId + " data: "
-                                                    + data);
+                        + data);
                 if (null == data || TStringUtil.isBlank(data)) {
                     return;
                 }
@@ -260,7 +256,7 @@ public class TAtomDsConfHandle extends AbstractLifecycle implements Lifecycle {
                     overConfByLocal(TAtomDsConfHandle.this.localConf, newConf);
                     // 如果推送过来的数据库状态是 RW/R->NA,直接销毁掉数据源，以下业务逻辑不做处理
                     if (TAtomDbStatusEnum.NA_STATUS != TAtomDsConfHandle.this.runTimeConf.getDbStautsEnum()
-                        && TAtomDbStatusEnum.NA_STATUS == tmpConf.getDbStautsEnum()) {
+                            && TAtomDbStatusEnum.NA_STATUS == tmpConf.getDbStautsEnum()) {
                         try {
                             TAtomDsConfHandle.this.druidDataSource.close();
                             logger.info("[DRUID NA STATUS PUSH] destroy DataSource !");
@@ -272,24 +268,24 @@ public class TAtomDsConfHandle extends AbstractLifecycle implements Lifecycle {
                         DruidDataSource druidDataSource;
                         try {
                             druidDataSource = convertTAtomDsConf2DruidConf(TAtomDsConfHandle.this.dbKey,
-                                newConf,
-                                TAtomConstants.getDbNameStr(TAtomDsConfHandle.this.unitName,
-                                    TAtomDsConfHandle.this.appName,
-                                    TAtomDsConfHandle.this.dbKey));
+                                    newConf,
+                                    TAtomConstants.getDbNameStr(TAtomDsConfHandle.this.unitName,
+                                            TAtomDsConfHandle.this.appName,
+                                            TAtomDsConfHandle.this.dbKey));
                         } catch (Exception e1) {
                             logger.error("[DRUID GlobaConfError] convertTAtomDsConf2DruidConf Error! dataId : "
-                                         + dataId + " config : " + data);
+                                    + dataId + " config : " + data);
                             return;
                         }
                         // 检查转换后结果是否正确
                         if (!checkLocalTxDataSourceDO(druidDataSource)) {
                             logger.error("[DRUID GlobaConfError] dataSource Prams Error! dataId : " + dataId
-                                         + " config : " + data);
+                                    + " config : " + data);
                             return;
                         }
                         // 如果推送的状态时 NA->RW/R 时需要重新创建数据源，无需再刷新
                         if (TAtomDsConfHandle.this.runTimeConf.getDbStautsEnum() == TAtomDbStatusEnum.NA_STATUS
-                            && (newConf.getDbStautsEnum() == TAtomDbStatusEnum.RW_STATUS
+                                && (newConf.getDbStautsEnum() == TAtomDbStatusEnum.RW_STATUS
                                 || newConf.getDbStautsEnum() == TAtomDbStatusEnum.R_STATUS || newConf.getDbStautsEnum() == TAtomDbStatusEnum.W_STATUS)) {
                             // 创建数据源
                             try {
@@ -322,17 +318,17 @@ public class TAtomDsConfHandle extends AbstractLifecycle implements Lifecycle {
                                     logger.info("[DRUID CONFIG CHANGE STATUS] Always ReCreate DataSource !");
                                 } catch (Exception e) {
                                     logger.error("[DRUID Create GlobaConf Error]  Always ReCreate DataSource Error !",
-                                        e);
+                                            e);
                                 }
                             } else {
                                 logger.info("[DRUID Create GlobaConf Error]  global config is same!nothing will be done! the global config is:"
-                                            + globaConfStr);
+                                        + globaConfStr);
                             }
                         }
                     }
                     // 处理数据库状态监听器
                     processDbStatusListener(TAtomDsConfHandle.this.runTimeConf.getDbStautsEnum(),
-                        newConf.getDbStautsEnum());
+                            newConf.getDbStautsEnum());
                     // 是用新的配置覆盖运行时的配置
                     TAtomDsConfHandle.this.runTimeConf = newConf;
                     clearDataSourceWrapper();
@@ -370,7 +366,7 @@ public class TAtomDsConfHandle extends AbstractLifecycle implements Lifecycle {
     /**
      * 应用配置监听，当应用配置发生变化时，区分发生 变化的配置，来决定具体是flush还是reCreate
      * 
-     * @param defaultDbConfManager
+     * @param dbConfManager
      */
     private void registerAppDbConfListener(DbConfManager dbConfManager) {
         dbConfManager.registerAppDbConfListener(new ConfigDataListener() {
@@ -745,8 +741,7 @@ public class TAtomDsConfHandle extends AbstractLifecycle implements Lifecycle {
 
     /**
      * 是用本地配置覆盖传入的TAtomDsConfDO的属性
-     * 
-     * @param tAtomDsConfDO
+     *
      */
     private void overConfByLocal(TAtomDsConfDO localDsConfDO, TAtomDsConfDO newDsConfDO) {
         if (null == newDsConfDO || null == localDsConfDO) {

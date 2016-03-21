@@ -42,12 +42,12 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>tddl-config-diamond</artifactId>
-			<version>${project.version}</version>
-			<scope>test</scope>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>${project.groupId}</groupId>-->
+			<!--<artifactId>tddl-config-diamond</artifactId>-->
+			<!--<version>${project.version}</version>-->
+			<!--<scope>test</scope>-->
+		<!--</dependency>-->
 		<dependency>
 			<groupId>org.apache.ibatis</groupId>
 			<artifactId>ibatis-sqlmap</artifactId>

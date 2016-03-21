@@ -24,7 +24,7 @@ public class TAtomDataSource extends AbstractTAtomDataSource {
 
     protected static Logger                       logger             = LoggerFactory.getLogger(TAtomDataSource.class);
 
-    private static Map<String, TAtomDsConfHandle> cacheConfHandleMap = new HashMap<String, TAtomDsConfHandle>();
+    private final static Map<String, TAtomDsConfHandle> cacheConfHandleMap = new HashMap<String, TAtomDsConfHandle>();
 
     private volatile TAtomDsConfHandle            dsConfHandle       = new TAtomDsConfHandle();
 

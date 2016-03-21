@@ -67,10 +67,10 @@ public class TAtomConfParser {
      */
     public static final String APP_CONN_RESTRICT                     = "connRestrict";
 
-    public static TAtomDsConfDO parserTAtomDsConfDO(String globaConfStr, String appConfStr) {
+    public static TAtomDsConfDO parserTAtomDsConfDO(String globalConfStr, String appConfStr) {
         TAtomDsConfDO pasObj = new TAtomDsConfDO();
-        if (TStringUtil.isNotBlank(globaConfStr)) {
-            Properties globaProp = TAtomConfParser.parserConfStr2Properties(globaConfStr);
+        if (TStringUtil.isNotBlank(globalConfStr)) {
+            Properties globaProp = TAtomConfParser.parserConfStr2Properties(globalConfStr);
             if (!globaProp.isEmpty()) {
                 String ip = TStringUtil.trim(globaProp.getProperty(TAtomConfParser.GLOBA_IP_KEY));
                 if (TStringUtil.isNotBlank(ip)) {

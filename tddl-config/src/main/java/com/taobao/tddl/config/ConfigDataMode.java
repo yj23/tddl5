@@ -21,7 +21,7 @@ public class ConfigDataMode {
     }
 
     public static enum Mode {
-        DIAMOND("diamond"), MOCK("mock"), AUTO(null);
+        DIAMOND("diamond"), MOCK("mock"), AUTO(null), ZOOKEEPER("zookeeper");
 
         private String extensionName;
 

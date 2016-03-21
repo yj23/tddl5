@@ -22,6 +22,9 @@
 		
 		<atom name="andor_mysql_group_0_atom0">
 			<properties>
+                <!--global
+                    com.taobao.tddl.atom.global.${dbKey}
+                -->
 				<property name="com.taobao.tddl.atom.global.andor_mysql_group_0_atom0">
 					<value>
 					ip=10.232.24.104
@@ -31,6 +34,9 @@
 					dbStatus=RW
 					</value>
 				</property>
+                <!--app
+                     com.taobao.tddl.atom.app.${appName}.${dbKey}
+                -->
 				<property name="com.taobao.tddl.atom.app.andor_mysql_qatest.andor_mysql_group_0_atom0">
 					<value>
 					userName=diamond
@@ -45,7 +51,9 @@
 					timeSliceInMillis=0
 					</value>
 				</property>
-
+                <!--user
+                    com.taobao.tddl.atom.passwd.${dbName}.${dbType}.${userName}
+                -->
 				<property name="com.taobao.tddl.atom.passwd.andor_mysql_group_0_atom0.mysql.diamond">
 					<value>encPasswd=-6e3251280f47bc7d</value>
 				</property>

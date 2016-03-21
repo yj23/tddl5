@@ -130,13 +130,13 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>com.taobao.diamond</groupId>
-			<artifactId>diamond-client</artifactId>
-			<version>3.6.8</version>
-			<!-- <exclusions> <exclusion> <artifactId>log4j</artifactId> <groupId>log4j</groupId> 
-				</exclusion> </exclusions> -->
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>com.taobao.diamond</groupId>-->
+			<!--<artifactId>diamond-client</artifactId>-->
+			<!--<version>3.6.8</version>-->
+			<!--&lt;!&ndash; <exclusions> <exclusion> <artifactId>log4j</artifactId> <groupId>log4j</groupId> -->
+				<!--</exclusion> </exclusions> &ndash;&gt;-->
+		<!--</dependency>-->
 
 		<dependency>
 			<groupId>org.springframework</groupId>

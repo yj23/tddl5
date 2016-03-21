@@ -73,13 +73,13 @@
 	<modules>
 		<module>tddl-common</module>
 		<module>tddl-config</module>
-		<module>tddl-config-diamond</module>
+		<!--<module>tddl-config-diamond</module>-->
 		<module>tddl-parser</module>
 		<module>tddl-atom</module>
 		<module>tddl-group</module>
 		<module>tddl-repo-mysql</module>
 		<module>tddl-repo-hbase</module>
-		<module>tddl-repo-oceanbase</module>
+		<!--<module>tddl-repo-oceanbase</module>-->
 		<module>tddl-repo-demo</module>
 		<module>tddl-optimizer</module>
 		<module>tddl-executor</module>
@@ -89,9 +89,10 @@
 		<module>tddl-sequence</module>
 		<module>tddl-repo-bdb</module>
 		<module>tddl-net</module>
-		<module>tddl-server</module>
-		<module>tddl-manager</module>
-		<module>tddl-qatest</module>
+        <module>tddl-config-zookeeper</module>
+        <!--<module>tddl-server</module>-->
+		<!--<module>tddl-manager</module>-->
+		<!--<module>tddl-qatest</module>-->
 	</modules>
 
 	<dependencyManagement>
@@ -117,16 +118,16 @@
 				<artifactId>fastjson</artifactId>
 				<version>1.1.36</version>
 			</dependency>
-			<dependency>
-				<groupId>com.taobao.diamond</groupId>
-				<artifactId>diamond-client</artifactId>
-				<version>3.6.8</version>
-			</dependency>
-			<dependency>
-				<groupId>com.taobao.diamond</groupId>
-				<artifactId>diamond-utils</artifactId>
-				<version>3.1.4</version>
-			</dependency>
+			<!--<dependency>-->
+				<!--<groupId>com.taobao.diamond</groupId>-->
+				<!--<artifactId>diamond-client</artifactId>-->
+				<!--<version>3.6.8</version>-->
+			<!--</dependency>-->
+			<!--<dependency>-->
+				<!--<groupId>com.taobao.diamond</groupId>-->
+				<!--<artifactId>diamond-utils</artifactId>-->
+				<!--<version>3.1.4</version>-->
+			<!--</dependency>-->
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>druid</artifactId>
@@ -236,6 +237,11 @@
 				<version>1.0.4</version>
 			</dependency>
 
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>3.4.6</version>
+            </dependency>
 			<!-- Test libs -->
 			<dependency>
 				<groupId>junit</groupId>

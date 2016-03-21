@@ -92,7 +92,7 @@ public class AtomConfigManager implements DbConfManager {
     /**
      * @param Listener
      */
-    public void registerGlobaDbConfListener(ConfigDataListener listener) {
+    public void registerGlobalDbConfListener(ConfigDataListener listener) {
         globalDbConfListener.add(listener);
     }
 
