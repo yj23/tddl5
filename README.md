@@ -1,6 +1,7 @@
 tddl
 ====
 
-just tddl
+鉴于diamond部署不方便，虽然开源但是无社区支持，所以决定拿掉diamond依赖，到zookeeper上来。
 
-jiechen add this message
+1期后台功能不独立开发，配置文件从文件导入到zk。
+2期完善后台配置功能模块。
