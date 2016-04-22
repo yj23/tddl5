@@ -9,7 +9,7 @@ import java.sql.Statement;
 
 import org.junit.Test;
 
-import com.taobao.diamond.mockserver.MockServer;
+//import com.taobao.diamond.mockserver.MockServer;
 import com.taobao.tddl.common.GroupDataSourceRouteHelper;
 import com.taobao.tddl.common.client.util.ThreadLocalMap;
 import com.taobao.tddl.common.model.ThreadLocalString;
@@ -21,7 +21,7 @@ public class DataSourceIndexTest extends BaseGroupTest {
     public void testThreadLocalDataSourceIndex() throws Exception {
         try {
             TGroupDataSource ds = new TGroupDataSource(GROUP0, APPNAME);
-            MockServer.setConfigInfo(ds.getFullDbGroupKey(), DSKEY0 + ":rw" + "," + DSKEY1 + ":r");
+//            MockServer.setConfigInfo(ds.getFullDbGroupKey(), DSKEY0 + ":rw" + "," + DSKEY1 + ":r");
             ds.init();
 
             ThreadLocalMap.put(ThreadLocalString.DATASOURCE_INDEX, 0);
@@ -48,7 +48,7 @@ public class DataSourceIndexTest extends BaseGroupTest {
     public void testGroupDataSourceRouteHelper() throws Exception {
         try {
             TGroupDataSource ds = new TGroupDataSource(GROUP0, APPNAME);
-            MockServer.setConfigInfo(ds.getFullDbGroupKey(), DSKEY0 + ":rw" + "," + DSKEY1 + ":r");
+//            MockServer.setConfigInfo(ds.getFullDbGroupKey(), DSKEY0 + ":rw" + "," + DSKEY1 + ":r");
             ds.init();
 
             GroupDataSourceRouteHelper.executeByGroupDataSourceIndex(0);

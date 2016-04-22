@@ -11,7 +11,7 @@ import org.junit.BeforeClass;
 import org.junit.Ignore;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.taobao.diamond.mockserver.MockServer;
+//import com.taobao.diamond.mockserver.MockServer;
 import com.taobao.tddl.atom.common.TAtomConstants;
 import com.taobao.tddl.atom.config.TAtomConfParser;
 import com.taobao.tddl.atom.config.TAtomDsConfDO;
@@ -33,7 +33,7 @@ public class BaseGroupTest {
 
     @BeforeClass
     public static void beforeClass() {
-        MockServer.setUpMockServer();
+//        MockServer.setUpMockServer();
         // 初始化一些配置
         mockConfig("group0", APPNAME, GROUP0, DSKEY0);
         mockConfig("group1", APPNAME, GROUP1, DSKEY1);
@@ -42,7 +42,7 @@ public class BaseGroupTest {
 
     @AfterClass
     public static void after() {
-        MockServer.tearDownMockServer();
+//        MockServer.tearDownMockServer();
     }
 
     @Before
@@ -52,10 +52,10 @@ public class BaseGroupTest {
 
     private static void mockConfig(String dir, String appName, String groupName, String dbKey) {
         String globaStr = PropLoadTestUtil.loadPropFile2String("conf/" + dir + "/globa.properties");
-        MockServer.setConfigInfo(TAtomConstants.getGlobalDataId(dbKey), globaStr);
+//        MockServer.setConfigInfo(TAtomConstants.getGlobalDataId(dbKey), globaStr);
 
         String appStr = PropLoadTestUtil.loadPropFile2String("conf/" + dir + "/app.properties");
-        MockServer.setConfigInfo(TAtomConstants.getAppDataId(appName, dbKey), appStr);
+//        MockServer.setConfigInfo(TAtomConstants.getAppDataId(appName, dbKey), appStr);
 
         String passwdStr = PropLoadTestUtil.loadPropFile2String("conf/" + dir + "/passwd.properties");
         // 解析配置
@@ -63,7 +63,7 @@ public class BaseGroupTest {
         String passwdDataId = TAtomConstants.getPasswdDataId(tAtomDsConfDO.getDbName(),
             tAtomDsConfDO.getDbType(),
             tAtomDsConfDO.getUserName());
-        MockServer.setConfigInfo(passwdDataId, passwdStr);
+//        MockServer.setConfigInfo(passwdDataId, passwdStr);
     }
 
     public static DataSource getMySQLDataSource() {

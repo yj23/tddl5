@@ -16,19 +16,19 @@ import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.alibaba.cobar.CobarServer;
+//import com.alibaba.cobar.CobarServer;
 import com.alibaba.druid.pool.DruidDataSource;
-import com.taobao.diamond.mockserver.MockServer;
+//import com.taobao.diamond.mockserver.MockServer;
 import com.taobao.tddl.common.properties.ConnectionProperties;
 import com.taobao.tddl.matrix.jdbc.TDataSource;
 import com.taobao.tddl.qatest.util.LoadPropsUtil;
 import com.taobao.tddl.qatest.util.PrepareData;
 
 /**
- * 基本测试类
- * <p/>
- * Author By: zhuoxue.yll Created Date: 2012-2-16 下午2:05:24
- */
+* 基本测试类
+* <p/>
+* Author By: zhuoxue.yll Created Date: 2012-2-16 下午2:05:24
+*/
 @Ignore(value = "提供初始化环境的实际方法")
 public class BaseMatrixTestCase extends PrepareData {
 
@@ -46,7 +46,7 @@ public class BaseMatrixTestCase extends PrepareData {
     private static String                  machineTapologyFile = "matrix/server_topology.xml";
 
     private static String                  typeFile            = "db_type.properties";
-    private static CobarServer             cobarServer;
+//    private static CobarServer             cobarServer;
 
     static {
         dbType = LoadPropsUtil.loadProps(typeFile).getProperty("dbType");
@@ -54,7 +54,7 @@ public class BaseMatrixTestCase extends PrepareData {
 
     @BeforeClass
     public static void IEnvInit() throws Exception {
-        MockServer.tearDownMockServer();
+//        MockServer.tearDownMockServer();
         // setMatrixMockInfo(MATRIX_DBGROUPS_PATH, TDDL_DBGROUPS);
 
         if (tddlDatasource == null) {
@@ -113,8 +113,8 @@ public class BaseMatrixTestCase extends PrepareData {
 
             return tddlDatasource;
         } else if (dbTypeStack.equals("tddl-server")) {
-            cobarServer = CobarServer.getInstance();
-            cobarServer.init();
+//            cobarServer = CobarServer.getInstance();
+//            cobarServer.init();
 
             DruidDataSource druidDs = new DruidDataSource();
             String url = "jdbc:mysql://127.0.0.1:8607/andor_mysql_qatest";

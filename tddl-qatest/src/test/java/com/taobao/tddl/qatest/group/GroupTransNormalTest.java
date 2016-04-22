@@ -13,10 +13,10 @@ import com.taobao.tddl.common.GroupDataSourceRouteHelper;
 import com.taobao.tddl.qatest.util.DateUtil;
 
 /**
- * Comment for GroupTransNormalTest
- * <p/>
- * Created Date: 2010-12-10 下午07:48:14
- */
+* Comment for GroupTransNormalTest
+* <p/>
+* Created Date: 2010-12-10 下午07:48:14
+*/
 public class GroupTransNormalTest extends GroupTestCase {
 
     @Test

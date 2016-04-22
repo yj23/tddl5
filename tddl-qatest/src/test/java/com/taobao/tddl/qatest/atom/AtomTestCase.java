@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.taobao.diamond.mockserver.MockServer;
+//import com.taobao.diamond.mockserver.MockServer;
 import com.taobao.tddl.atom.TAtomDataSource;
 import com.taobao.tddl.qatest.BaseAtomGroupTestCase;
 
@@ -63,6 +63,6 @@ public class AtomTestCase extends BaseAtomGroupTestCase {
         initAtomConfig(path, appName, dbKey);
 
         // -----------------MockServer
-        MockServer.setConfigInfos(dataMap);
+//        MockServer.setConfigInfos(dataMap);
     }
 }

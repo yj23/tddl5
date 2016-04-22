@@ -11,12 +11,12 @@ public class StaticTAtomDataSourceTest {
     @Test
     public void createStaticTAtomDataSource() throws Exception {
         StaticTAtomDataSource dataSource = new StaticTAtomDataSource();
-        dataSource.setIp("10.232.31.154");
+        dataSource.setIp("172.16.1.72");
         dataSource.setPort("3306");
         dataSource.setDbName("test");
         dataSource.setDbType("mysql");
-        dataSource.setUserName("tddl");
-        dataSource.setPasswd("tddl");
+        dataSource.setUserName("root");
+        dataSource.setPasswd("pmj8wd24rspM");
         dataSource.setMinPoolSize(1);
         dataSource.setMaxPoolSize(2);
         // 初始化

@@ -8,7 +8,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.taobao.diamond.mockserver.MockServer;
+//import com.taobao.diamond.mockserver.MockServer;
 import com.taobao.tddl.atom.BaseAtomTest;
 import com.taobao.tddl.atom.TAtomDataSource;
 import com.taobao.tddl.atom.config.TAtomConfParser;
@@ -261,17 +261,17 @@ public class TAtomDataSourceTest extends BaseAtomTest {
         // 设置错误的IP进行推送
         // 全局配置
         String globaStr = PropLoadTestUtil.loadPropFile2String("conf/" + configName + "/globa.properties");
-        MockServer.setConfigInfo(TAtomConstants.getGlobalDataId(dbKey), globaStr);
+//        MockServer.setConfigInfo(TAtomConstants.getGlobalDataId(dbKey), globaStr);
         // 应用配置
         String appStr = PropLoadTestUtil.loadPropFile2String("conf/" + configName + "/app.properties");
-        MockServer.setConfigInfo(TAtomConstants.getAppDataId(appName, dbKey), appStr);
+//        MockServer.setConfigInfo(TAtomConstants.getAppDataId(appName, dbKey), appStr);
         // 解析配置
         TAtomDsConfDO tAtomDsConfDO = TAtomConfParser.parserTAtomDsConfDO(globaStr, appStr);
         Properties passwdProp = PropLoadTestUtil.loadPropFromFile("conf/" + configName + "/passwd.properties");
         String passwdDataId = TAtomConstants.getPasswdDataId(tAtomDsConfDO.getDbName(),
             tAtomDsConfDO.getDbType(),
             tAtomDsConfDO.getUserName());
-        MockServer.setConfigInfo(passwdDataId, PropLoadTestUtil.convertProp2Str(change.doChange(passwdProp)));
+//        MockServer.setConfigInfo(passwdDataId, PropLoadTestUtil.convertProp2Str(change.doChange(passwdProp)));
         Thread.sleep(3000);
         // 期待出现错误
         boolean result = false;

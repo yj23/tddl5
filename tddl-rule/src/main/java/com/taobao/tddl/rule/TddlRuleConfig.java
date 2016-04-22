@@ -349,7 +349,7 @@ public class TddlRuleConfig extends AbstractLifecycle implements Lifecycle {
     }
 
     private void logReceiveRule(String dataId, String data) {
-        StringBuilder sb = new StringBuilder("recieve versions data!dataId:");
+        StringBuilder sb = new StringBuilder("receive versions data!dataId:");
         sb.append(dataId);
         sb.append(" data:");
         sb.append(data);
@@ -393,7 +393,7 @@ public class TddlRuleConfig extends AbstractLifecycle implements Lifecycle {
     private class VersionsConfigListener implements ConfigDataListener {
 
         @Override
-        public void onDataRecieved(String dataId, String data) {
+        public void onDataReceived(String dataId, String data) {
             synchronized (vtrs) { // 并发控制
                 if (TStringUtil.isNotEmpty(data)) {
                     String[] versions = data.split(",");
@@ -461,7 +461,7 @@ public class TddlRuleConfig extends AbstractLifecycle implements Lifecycle {
     private class SingleRuleConfigListener implements ConfigDataListener {
 
         @Override
-        public void onDataRecieved(String dataId, String data) {
+        public void onDataReceived(String dataId, String data) {
             synchronized (vtrs) { // 并发控制
                 if (TStringUtil.isNotEmpty(data)) {
                     logReceiveRule(dataId, data);

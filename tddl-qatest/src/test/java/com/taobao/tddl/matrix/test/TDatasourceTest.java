@@ -11,7 +11,7 @@ import org.junit.Test;
 import com.taobao.tddl.common.exception.TddlException;
 import com.taobao.tddl.matrix.jdbc.TDataSource;
 
-public class TDatasourceTest {
+public class TDataSourceTest {
 
     @Test
     public void initTestWithDS() throws TddlException, SQLException {

@@ -36,7 +36,7 @@ import com.taobao.tddl.optimizer.core.plan.IDataNodeExecutor.ExplainMode;
 import com.taobao.tddl.optimizer.core.plan.IQueryTree;
 import com.taobao.tddl.optimizer.exception.EmptyResultFilterException;
 import com.taobao.tddl.optimizer.parse.SqlAnalysisResult;
-import com.taobao.tddl.statistics.OrignSQLOperation;
+import com.taobao.tddl.statistics.OriginSOLOperation;
 
 import com.taobao.tddl.common.utils.logger.Logger;
 import com.taobao.tddl.common.utils.logger.LoggerFactory;
@@ -57,13 +57,13 @@ public class MatrixExecutor extends AbstractLifecycle implements IExecutor {
         // client端核心流程
         List columnsForResultSet = null;
         try {
-            ExplainResult explain = procesExplain(sql);
+            ExplainResult explain = processExplain(sql);
             if (explain != null) {
                 sql = sql.substring(explain.explainIndex);
             }
 
             if (executionContext.isEnableTrace()) {
-                OrignSQLOperation op = new OrignSQLOperation(sql);
+                OriginSOLOperation op = new OriginSOLOperation(sql);
                 executionContext.getTracer().trace(op);
             }
 
@@ -129,7 +129,7 @@ public class MatrixExecutor extends AbstractLifecycle implements IExecutor {
         ExplainMode explainMode;
     }
 
-    private ExplainResult procesExplain(String sql) {
+    private ExplainResult processExplain(String sql) {
         String temp = sql;
         int i = 0;
         boolean explain = false;

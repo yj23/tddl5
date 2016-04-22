@@ -329,7 +329,7 @@ public class TopologyHandler extends AbstractLifecycle {
         }
 
         @Override
-        public void onDataRecieved(String dataId, String data) {
+        public void onDataReceived(String dataId, String data) {
             LoggerInit.TDDL_DYNAMIC_CONFIG.info("receive matrix dataId:" + dataId + " , data:" + data);
             synchronized (topologyHandler) {
                 // 重载一次所有配置

@@ -106,7 +106,7 @@ public class SequenceManager extends AbstractSequenceManager {
     public class SequenceConfigDataListener implements ConfigDataListener {
 
         @Override
-        public void onDataRecieved(String dataId, String data) {
+        public void onDataReceived(String dataId, String data) {
             if (TStringUtil.isEmpty(data)) {
                 logger.warn("sequence is null, dataId is " + dataId);
                 return;

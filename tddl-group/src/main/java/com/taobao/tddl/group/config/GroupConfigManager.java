@@ -611,7 +611,7 @@ public class GroupConfigManager extends AbstractLifecycle implements Lifecycle {
         }
 
         @Override
-        public void onDataRecieved(String dataId, String data) {
+        public void onDataReceived(String dataId, String data) {
             try {
                 String oldData = this.configManager.tGroupDataSource.getDsKeyAndWeightCommaArray();
                 LoggerInit.TDDL_DYNAMIC_CONFIG.info("group ds data received !dataId:" + dataId + ", new data:" + data
@@ -626,7 +626,7 @@ public class GroupConfigManager extends AbstractLifecycle implements Lifecycle {
     private class ExtraGroupConfigReceiver implements ConfigDataListener {
 
         @Override
-        public void onDataRecieved(String dataId, String data) {
+        public void onDataReceived(String dataId, String data) {
             LoggerInit.TDDL_DYNAMIC_CONFIG.info("receive group extra data:" + data);
             try {
                 parseExtraConfig(data);
@@ -638,7 +638,7 @@ public class GroupConfigManager extends AbstractLifecycle implements Lifecycle {
 
     // 仅用于测试
     public void receiveConfigInfo(String configInfo) {
-        configReceiver.onDataRecieved(null, configInfo);
+        configReceiver.onDataReceived(null, configInfo);
     }
 
     // 仅用于测试

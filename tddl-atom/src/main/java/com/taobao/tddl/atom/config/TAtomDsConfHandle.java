@@ -182,7 +182,7 @@ public class TAtomDsConfHandle extends AbstractLifecycle implements Lifecycle {
         dbPasswdManager.registerPasswdConfListener(new ConfigDataListener() {
 
             @Override
-            public void onDataRecieved(String dataId, String data) {
+            public void onDataReceived(String dataId, String data) {
                 LoggerInit.TDDL_DYNAMIC_CONFIG.info("[Passwd HandleData] dataId : " + dataId + " data: " + data);
                 if (null == data || TStringUtil.isBlank(data)) {
                     return;
@@ -234,7 +234,7 @@ public class TAtomDsConfHandle extends AbstractLifecycle implements Lifecycle {
         dbConfManager.registerGlobalDbConfListener(new ConfigDataListener() {
 
             @Override
-            public void onDataRecieved(String dataId, String data) {
+            public void onDataReceived(String dataId, String data) {
                 LoggerInit.TDDL_DYNAMIC_CONFIG.info("[DRUID GlobaConf HandleData] dataId : " + dataId + " data: "
                         + data);
                 if (null == data || TStringUtil.isBlank(data)) {
@@ -372,7 +372,7 @@ public class TAtomDsConfHandle extends AbstractLifecycle implements Lifecycle {
         dbConfManager.registerAppDbConfListener(new ConfigDataListener() {
 
             @Override
-            public void onDataRecieved(String dataId, String data) {
+            public void onDataReceived(String dataId, String data) {
                 LoggerInit.TDDL_DYNAMIC_CONFIG.info("[DRUID AppConf HandleData] dataId : " + dataId + " data: " + data);
                 if (null == data || TStringUtil.isBlank(data)) {
                     return;

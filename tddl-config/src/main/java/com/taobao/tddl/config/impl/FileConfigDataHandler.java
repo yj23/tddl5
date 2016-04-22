@@ -88,7 +88,7 @@ public class FileConfigDataHandler extends AbstractLifecycle implements ConfigDa
                     // 复制一份，避免并发修改
                     List<ConfigDataListener> cdls = new ArrayList<ConfigDataListener>(configDataListeners);
                     for (ConfigDataListener cdl : cdls) {
-                        cdl.onDataRecieved(dataId, data.get());
+                        cdl.onDataReceived(dataId, data.get());
                     }
                 }
             } catch (IOException e) {

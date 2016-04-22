@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.dao.DataAccessException;
 
-import com.taobao.diamond.mockserver.MockServer;
+//import com.taobao.diamond.mockserver.MockServer;
 import com.taobao.tddl.atom.common.TAtomConstants;
 
 public class AtomReadRestraintTest extends AtomTestCase {
@@ -38,8 +38,8 @@ public class AtomReadRestraintTest extends AtomTestCase {
         int executCount = 10;
         int readCount = RandomUtils.nextInt(executCount);
 
-        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
-            " maxPoolSize=100\r\nuserName=tddl\r\nminPoolSize=1\r\nreadRestrictTimes=" + executCount + "\r\n");
+//        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
+//            " maxPoolSize=100\r\nuserName=tddl\r\nminPoolSize=1\r\nreadRestrictTimes=" + executCount + "\r\n");
         TimeUnit.SECONDS.sleep(SLEEP_TIME);
 
         String sql = "select * from normaltbl_0001 where pk=?";
@@ -64,8 +64,8 @@ public class AtomReadRestraintTest extends AtomTestCase {
         int readCount = 20;
         int executCount = 10;
 
-        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
-            " maxPoolSize=100\r\nuserName=tddl\r\nminPoolSize=1\r\nreadRestrictTimes=" + executCount + "\r\n");
+//        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
+//            " maxPoolSize=100\r\nuserName=tddl\r\nminPoolSize=1\r\nreadRestrictTimes=" + executCount + "\r\n");
         TimeUnit.SECONDS.sleep(SLEEP_TIME);
 
         String sql = "select * from normaltbl_0001 where pk=?";

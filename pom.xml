@@ -92,7 +92,7 @@
         <module>tddl-config-zookeeper</module>
         <!--<module>tddl-server</module>-->
 		<!--<module>tddl-manager</module>-->
-		<!--<module>tddl-qatest</module>-->
+		<module>tddl-qatest</module>
 	</modules>
 
 	<dependencyManagement>
@@ -227,16 +227,10 @@
 				<version>0.94.12</version>
 			</dependency>
 			<dependency>
-				<groupId>org.apache.zookeeper</groupId>
-				<artifactId>zookeeper</artifactId>
-				<version>3.4.5</version>
-			</dependency>
-			<dependency>
 				<groupId>org.apache.hadoop</groupId>
 				<artifactId>hadoop-core</artifactId>
 				<version>1.0.4</version>
 			</dependency>
-
             <dependency>
                 <groupId>org.apache.zookeeper</groupId>
                 <artifactId>zookeeper</artifactId>

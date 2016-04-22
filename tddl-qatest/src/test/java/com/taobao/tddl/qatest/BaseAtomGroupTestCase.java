@@ -15,7 +15,7 @@ import org.junit.Ignore;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.taobao.diamond.mockserver.MockServer;
+//import com.taobao.diamond.mockserver.MockServer;
 import com.taobao.tddl.atom.TAtomDataSource;
 import com.taobao.tddl.atom.common.TAtomConstants;
 import com.taobao.tddl.atom.config.TAtomConfParser;
@@ -183,7 +183,7 @@ public class BaseAtomGroupTestCase extends BaseTestCase {
             groupsStr);
 
         // 建立MockServer
-        MockServer.setConfigInfos(BaseAtomGroupTestCase.dataMap);
+//        MockServer.setConfigInfos(BaseAtomGroupTestCase.dataMap);
     }
 
     protected static void clearData(JdbcTemplate tddlJTX, String sql, Object[] args) {

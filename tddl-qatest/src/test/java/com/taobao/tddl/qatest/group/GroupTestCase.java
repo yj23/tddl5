@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.taobao.diamond.mockserver.MockServer;
+//import com.taobao.diamond.mockserver.MockServer;
 import com.taobao.tddl.common.GroupDataSourceRouteHelper;
 import com.taobao.tddl.common.exception.TddlException;
 import com.taobao.tddl.group.jdbc.TGroupDataSource;
@@ -78,7 +78,7 @@ public class GroupTestCase extends BaseAtomGroupTestCase {
         dataMap.put(TGroupDataSource.getFullDbGroupKey(key), groupStr);
 
         // 建立MockServer
-        MockServer.setConfigInfos(dataMap);
+//        MockServer.setConfigInfos(dataMap);
 
         // 获取JdbcTemplate
         tddlJT = getJT(key);

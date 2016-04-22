@@ -12,7 +12,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 
-import com.taobao.diamond.mockserver.MockServer;
+//import com.taobao.diamond.mockserver.MockServer;
 import com.taobao.tddl.qatest.util.DateUtil;
 import com.taobao.tddl.qatest.util.Validator;
 
@@ -20,10 +20,10 @@ import com.taobao.tddl.common.utils.logger.Logger;
 import com.taobao.tddl.common.utils.logger.LoggerFactory;
 
 /**
- * 基本测试类，提供创建AndorServer和AndorClient方法
- * <p/>
- * Author By: zhuoxue.yll Created Date: 2012-2-16 下午2:05:24
- */
+* 基本测试类，提供创建AndorServer和AndorClient方法
+* <p/>
+* Author By: zhuoxue.yll Created Date: 2012-2-16 下午2:05:24
+*/
 @SuppressWarnings("rawtypes")
 @Ignore(value = "提供初始化环境的实际方法")
 public class BaseTestCase extends Validator {
@@ -65,12 +65,12 @@ public class BaseTestCase extends Validator {
 
     @BeforeClass
     public static void diamondSetUp() {
-        MockServer.setUpMockServer();
+//        MockServer.setUpMockServer();
     }
 
     @AfterClass
     public static void diamondTearDown() {
-        MockServer.tearDownMockServer();
+//        MockServer.tearDownMockServer();
         // TAtomDataSource.cleanAllDataSource();
     }
 

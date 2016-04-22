@@ -20,7 +20,7 @@ import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DataAccessException;
 
-import com.taobao.diamond.mockserver.MockServer;
+//import com.taobao.diamond.mockserver.MockServer;
 import com.taobao.tddl.client.sequence.exception.SequenceException;
 import com.taobao.tddl.client.sequence.impl.GroupSequence;
 import com.taobao.tddl.client.sequence.impl.GroupSequenceDao;
@@ -28,11 +28,11 @@ import com.taobao.tddl.common.GroupDataSourceRouteHelper;
 import com.taobao.tddl.qatest.BaseAtomGroupTestCase;
 
 /**
- * group sequence
- * 
- * @author zhuoxue
- * @since 5.0.1
- */
+* group sequence
+*
+* @author zhuoxue
+* @since 5.0.1
+*/
 public class GroupSequenceTest extends BaseAtomGroupTestCase {
 
     protected static ClassPathXmlApplicationContext context = null;
@@ -42,7 +42,7 @@ public class GroupSequenceTest extends BaseAtomGroupTestCase {
 
     @BeforeClass
     public static void setUp() throws Exception {
-        MockServer.setUpMockServer();
+//        MockServer.setUpMockServer();
         setMatrixMockInfo(BaseAtomGroupTestCase.MATRIX_DBGROUPS_PATH, BaseAtomGroupTestCase.TDDL_DBGROUPS);
     }
 
@@ -59,7 +59,7 @@ public class GroupSequenceTest extends BaseAtomGroupTestCase {
 
     /**
      * nextValue()函数
-     * 
+     *
      * @author zhuoxue
      * @since 5.0.1
      */
@@ -72,7 +72,7 @@ public class GroupSequenceTest extends BaseAtomGroupTestCase {
 
     /**
      * 修改sequence的初始值
-     * 
+     *
      * @author zhuoxue
      * @since 5.0.1
      */
@@ -92,7 +92,7 @@ public class GroupSequenceTest extends BaseAtomGroupTestCase {
 
     /**
      * 同一个线程 不同的实例nextValue()返回值是否递增
-     * 
+     *
      * @author zhuoxue
      * @since 5.0.1
      */
@@ -106,7 +106,7 @@ public class GroupSequenceTest extends BaseAtomGroupTestCase {
 
     /**
      * 不同的线程
-     * 
+     *
      * @author zhuoxue
      * @since 5.0.1
      */
@@ -132,7 +132,7 @@ public class GroupSequenceTest extends BaseAtomGroupTestCase {
 
     /**
      * 大步长
-     * 
+     *
      * @author zhuoxue
      * @since 5.0.1
      */
@@ -156,7 +156,7 @@ public class GroupSequenceTest extends BaseAtomGroupTestCase {
 
     /**
      * 小步长
-     * 
+     *
      * @author zhuoxue
      * @since 5.0.1
      */
@@ -181,7 +181,7 @@ public class GroupSequenceTest extends BaseAtomGroupTestCase {
 
     /**
      * 初始值为0 小步长
-     * 
+     *
      * @author zhuoxue
      * @since 5.0.1
      */
@@ -226,7 +226,7 @@ public class GroupSequenceTest extends BaseAtomGroupTestCase {
 
     /**
      * 初始值为0 大步长
-     * 
+     *
      * @author zhuoxue
      * @since 5.0.1
      */
@@ -277,7 +277,7 @@ public class GroupSequenceTest extends BaseAtomGroupTestCase {
 
     /**
      * 多实例
-     * 
+     *
      * @author zhuoxue
      * @since 5.0.1
      */
@@ -296,7 +296,7 @@ public class GroupSequenceTest extends BaseAtomGroupTestCase {
 
     /**
      * 多线程，两个db
-     * 
+     *
      * @author zhuoxue
      * @since 5.0.1
      */
@@ -337,7 +337,7 @@ public class GroupSequenceTest extends BaseAtomGroupTestCase {
 
     /**
      * 多线程，一个db
-     * 
+     *
      * @author zhuoxue
      * @since 5.0.1
      */

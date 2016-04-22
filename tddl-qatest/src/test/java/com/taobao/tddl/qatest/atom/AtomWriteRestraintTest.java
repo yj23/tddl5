@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.dao.DataAccessException;
 
-import com.taobao.diamond.mockserver.MockServer;
+//import com.taobao.diamond.mockserver.MockServer;
 import com.taobao.tddl.atom.common.TAtomConstants;
 
 public class AtomWriteRestraintTest extends AtomTestCase {
@@ -36,8 +36,8 @@ public class AtomWriteRestraintTest extends AtomTestCase {
         int executCount = 10;
         int writeCount = RandomUtils.nextInt(executCount);
 
-        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
-            " maxPoolSize=100\r\nuserName=tddl\r\nminPoolSize=1\r\nwriteRestrictTimes=" + executCount + "\r\n");
+//        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
+//            " maxPoolSize=100\r\nuserName=tddl\r\nminPoolSize=1\r\nwriteRestrictTimes=" + executCount + "\r\n");
         TimeUnit.SECONDS.sleep(SLEEP_TIME);
 
         String sql = "update normaltbl_0001 set gmt_create=? where pk=?";
@@ -61,8 +61,8 @@ public class AtomWriteRestraintTest extends AtomTestCase {
         int WriteCount = 20;
         int executCount = 10;
 
-        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
-            " maxPoolSize=100\r\nuserName=tddl\r\nminPoolSize=1\r\nwriteRestrictTimes=" + executCount + "\r\n");
+//        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
+//            " maxPoolSize=100\r\nuserName=tddl\r\nminPoolSize=1\r\nwriteRestrictTimes=" + executCount + "\r\n");
         TimeUnit.SECONDS.sleep(SLEEP_TIME);
 
         String sql = "update normaltbl_0001 set gmt_create=? where pk=?";

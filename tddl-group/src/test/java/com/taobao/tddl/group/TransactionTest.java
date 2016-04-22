@@ -17,7 +17,7 @@ import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
 
-import com.taobao.diamond.mockserver.MockServer;
+//import com.taobao.diamond.mockserver.MockServer;
 import com.taobao.tddl.common.exception.TddlException;
 import com.taobao.tddl.group.jdbc.TGroupDataSource;
 
@@ -27,7 +27,7 @@ public class TransactionTest extends BaseGroupTest {
     public void test单库事务() throws TddlException {
         TGroupDataSource ds = new TGroupDataSource(GROUP0, APPNAME);
         // 强制连dskey0库，读权重为20
-        MockServer.setConfigInfo(ds.getFullDbGroupKey(), DSKEY0 + ":r20w" + "," + DSKEY1 + ":r");
+//        MockServer.setConfigInfo(ds.getFullDbGroupKey(), DSKEY0 + ":r20w" + "," + DSKEY1 + ":r");
         ds.init();
 
         // 构建spring 事务莫把呢

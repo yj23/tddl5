@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 
 import org.junit.Test;
 
-import com.taobao.diamond.mockserver.MockServer;
+//import com.taobao.diamond.mockserver.MockServer;
 import com.taobao.tddl.common.model.DBType;
 import com.taobao.tddl.group.jdbc.DataSourceWrapper;
 import com.taobao.tddl.group.jdbc.TGroupDataSource;
@@ -36,7 +36,7 @@ public class CrudTest extends BaseGroupTest {
         TGroupDataSource ds = new TGroupDataSource();
         ds.setDbGroupKey(GROUP0);
         ds.setAppName(APPNAME);
-        MockServer.setConfigInfo(ds.getFullDbGroupKey(), DSKEY1 + ":rw");
+//        MockServer.setConfigInfo(ds.getFullDbGroupKey(), DSKEY1 + ":rw");
         ds.init();
 
         testCrud(ds);
@@ -60,7 +60,7 @@ public class CrudTest extends BaseGroupTest {
         TGroupDataSource ds = new TGroupDataSource();
         ds.setDbGroupKey(GROUP0);
         ds.setAppName(APPNAME);
-        MockServer.setConfigInfo(ds.getFullDbGroupKey(), DSKEY0 + ":rw" + "," + DSKEY1 + ":r");
+//        MockServer.setConfigInfo(ds.getFullDbGroupKey(), DSKEY0 + ":rw" + "," + DSKEY1 + ":r");
         ds.init();
 
         testCrud(ds);
@@ -88,8 +88,8 @@ public class CrudTest extends BaseGroupTest {
         TGroupDataSource ds = new TGroupDataSource();
         ds.setDbGroupKey(GROUP0);
         ds.setAppName(APPNAME);
-        MockServer.setConfigInfo(ds.getFullDbGroupKey(), DSKEY0 + ":r10w" + "," + DSKEY1 + ":r20" + "," + DSKEY2
-                                                         + ":r30");
+//        MockServer.setConfigInfo(ds.getFullDbGroupKey(), DSKEY0 + ":r10w" + "," + DSKEY1 + ":r20" + "," + DSKEY2
+//                                                         + ":r30");
         ds.init();
 
         testCrud(ds);
@@ -161,7 +161,7 @@ public class CrudTest extends BaseGroupTest {
         TGroupDataSource ds = new TGroupDataSource();
         ds.setDbGroupKey(GROUP0);
         ds.setAppName(APPNAME);
-        MockServer.setConfigInfo(ds.getFullDbGroupKey(), DSKEY0 + ":w" + "," + DSKEY1 + ":r20" + "," + DSKEY2 + ":r30");
+//        MockServer.setConfigInfo(ds.getFullDbGroupKey(), DSKEY0 + ":w" + "," + DSKEY1 + ":r20" + "," + DSKEY2 + ":r30");
         ds.init();
 
         testCrud_Read(ds);

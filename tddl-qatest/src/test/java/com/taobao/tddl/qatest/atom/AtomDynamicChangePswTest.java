@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import com.taobao.diamond.mockserver.MockServer;
+//import com.taobao.diamond.mockserver.MockServer;
 import com.taobao.tddl.atom.common.TAtomConstants;
 
 @SuppressWarnings("rawtypes")
@@ -29,15 +29,15 @@ public class AtomDynamicChangePswTest extends AtomTestCase {
     }
 
     private void restore() throws Exception {
-        MockServer.setConfigInfo(TAtomConstants.getPasswdDataId(DBKEY_0, DBTYPE_MYSQL, "tddl"),
-            "encPasswd=4485f91c9426e4d8\r\n");
+//        MockServer.setConfigInfo(TAtomConstants.getPasswdDataId(DBKEY_0, DBTYPE_MYSQL, "tddl"),
+//            "encPasswd=4485f91c9426e4d8\r\n");
         TimeUnit.SECONDS.sleep(SLEEP_TIME);
         Map re = null;
         try {
             re = tddlJT.queryForMap("select * from normaltbl_0001 where pk=?", new Object[] { RANDOM_ID });
         } catch (Exception ex) {
-            MockServer.setConfigInfo(TAtomConstants.getPasswdDataId(DBKEY_0, DBTYPE_MYSQL, "tddl"),
-                "encPasswd=4485f91c9426e4d8\r\n");
+//            MockServer.setConfigInfo(TAtomConstants.getPasswdDataId(DBKEY_0, DBTYPE_MYSQL, "tddl"),
+//                "encPasswd=4485f91c9426e4d8\r\n");
             TimeUnit.SECONDS.sleep(SLEEP_TIME);
             re = tddlJT.queryForMap("select * from normaltbl_0001 where pk=?", new Object[] { RANDOM_ID });
         }
@@ -49,13 +49,13 @@ public class AtomDynamicChangePswTest extends AtomTestCase {
     public void dynamicChangePswTest() throws Exception {
         Map re = tddlJT.queryForMap("select * from normaltbl_0001 where pk=?", new Object[] { RANDOM_ID });
         Assert.assertEquals(time, String.valueOf(re.get("gmt_create")));
-        MockServer.setConfigInfo(TAtomConstants.getPasswdDataId(DBKEY_0, DBTYPE_MYSQL, "tddl"),
-            "encPasswd=dddddddd\r\n");
+//        MockServer.setConfigInfo(TAtomConstants.getPasswdDataId(DBKEY_0, DBTYPE_MYSQL, "tddl"),
+//            "encPasswd=dddddddd\r\n");
         TimeUnit.SECONDS.sleep(SLEEP_TIME);
         try {
             tddlJT.queryForMap("select * from normaltbl_0001 where pk=?", new Object[] { RANDOM_ID });
-            MockServer.setConfigInfo(TAtomConstants.getPasswdDataId(DBKEY_0, DBTYPE_MYSQL, "tddl"),
-                "encPasswd=dddddddd\r\n");
+//            MockServer.setConfigInfo(TAtomConstants.getPasswdDataId(DBKEY_0, DBTYPE_MYSQL, "tddl"),
+//                "encPasswd=dddddddd\r\n");
             TimeUnit.SECONDS.sleep(SLEEP_TIME);
             tddlJT.queryForMap("select * from normaltbl_0001 where pk=?", new Object[] { RANDOM_ID });
             Assert.fail();

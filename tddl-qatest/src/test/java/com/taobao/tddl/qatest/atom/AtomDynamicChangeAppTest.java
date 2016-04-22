@@ -14,7 +14,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.dao.DataAccessException;
 
-import com.taobao.diamond.mockserver.MockServer;
+//import com.taobao.diamond.mockserver.MockServer;
 import com.taobao.tddl.atom.common.TAtomConstants;
 import com.taobao.tddl.qatest.util.DateUtil;
 
@@ -34,15 +34,15 @@ public class AtomDynamicChangeAppTest extends AtomTestCase {
     }
 
     private void restore() throws Exception {
-        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
-            "maxPoolSize=100\r\nuserName=tddl\r\nminPoolSize=1\r\n");
+//        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
+//            "maxPoolSize=100\r\nuserName=tddl\r\nminPoolSize=1\r\n");
         TimeUnit.SECONDS.sleep(SLEEP_TIME);
         Map re = null;
         try {
             re = tddlJT.queryForMap("select * from normaltbl_0001 where pk=?", new Object[] { RANDOM_ID });
         } catch (Exception ex) {
-            MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
-                "maxPoolSize=100\r\nuserName=tddl\r\nminPoolSize=1\r\n");
+//            MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
+//                "maxPoolSize=100\r\nuserName=tddl\r\nminPoolSize=1\r\n");
             TimeUnit.SECONDS.sleep(SLEEP_TIME);
             re = tddlJT.queryForMap("select * from normaltbl_0001 where pk=?", new Object[] { RANDOM_ID });
         }
@@ -54,14 +54,14 @@ public class AtomDynamicChangeAppTest extends AtomTestCase {
         Map re = tddlJT.queryForMap("select * from normaltbl_0001 where pk=?", new Object[] { RANDOM_ID });
         Assert.assertEquals(time, String.valueOf(re.get("gmt_create")));
 
-        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
-            "maxPoolSize=100\r\nuserName=xxxx\r\nminPoolSize=1\r\n");
+//        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
+//            "maxPoolSize=100\r\nuserName=xxxx\r\nminPoolSize=1\r\n");
         TimeUnit.SECONDS.sleep(SLEEP_TIME);
 
         try {
             tddlJT.queryForMap("select * from normaltbl_0001 where pk=?", new Object[] { RANDOM_ID });
-            MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
-                "maxPoolSize=100\r\nuserName=xxxx\r\nminPoolSize=1\r\n");
+//            MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
+//                "maxPoolSize=100\r\nuserName=xxxx\r\nminPoolSize=1\r\n");
             TimeUnit.SECONDS.sleep(SLEEP_TIME);
             tddlJT.queryForMap("select * from normaltbl_0001 where pk=?", new Object[] { RANDOM_ID });
             Assert.fail();
@@ -109,8 +109,8 @@ public class AtomDynamicChangeAppTest extends AtomTestCase {
         }
         Assert.assertEquals(exeuteCount, times1.get());
 
-        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
-            " maxPoolSize=3\r\nuserName=tddl\r\nminPoolSize=1\r\n");
+//        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
+//            " maxPoolSize=3\r\nuserName=tddl\r\nminPoolSize=1\r\n");
         TimeUnit.SECONDS.sleep(SLEEP_TIME);
 
         for (int i = 0; i < exeuteCount; i++) {
@@ -181,8 +181,8 @@ public class AtomDynamicChangeAppTest extends AtomTestCase {
         }
         Assert.assertEquals(exeuteCount, times1.get());
 
-        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
-            " maxPoolSize=100\r\nuserName=tddl\r\nminPoolSize=10\r\n");
+//        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
+//            " maxPoolSize=100\r\nuserName=tddl\r\nminPoolSize=10\r\n");
         TimeUnit.SECONDS.sleep(SLEEP_TIME);
 
         for (int i = 0; i < exeuteCount; i++) {
@@ -228,8 +228,8 @@ public class AtomDynamicChangeAppTest extends AtomTestCase {
         final String time = DateUtil.formatDate(new Date(), DateUtil.DATE_FULLHYPHEN);
         ExecutorService es = Executors.newFixedThreadPool(20);
 
-        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
-            "maxPoolSize=3\r\nuserName=tddl\r\nminPoolSize=1\r\n");
+//        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
+//            "maxPoolSize=3\r\nuserName=tddl\r\nminPoolSize=1\r\n");
         TimeUnit.SECONDS.sleep(SLEEP_TIME);
         for (int i = 0; i < exeuteCount; i++) {
             es.execute(new Runnable() {
@@ -255,8 +255,8 @@ public class AtomDynamicChangeAppTest extends AtomTestCase {
         }
         Assert.assertEquals(3, times.get());
 
-        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
-            "maxPoolSize=3\r\nuserName=tddl\r\nminPoolSize=1\r\nblockingTimeout=2000\r\n");
+//        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
+//            "maxPoolSize=3\r\nuserName=tddl\r\nminPoolSize=1\r\nblockingTimeout=2000\r\n");
         TimeUnit.SECONDS.sleep(SLEEP_TIME);
 
         for (int i = 0; i < exeuteCount; i++) {

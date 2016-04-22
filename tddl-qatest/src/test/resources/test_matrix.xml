@@ -12,20 +12,24 @@
 		</properties>
 
 		<atom name="andor_show_group0_atom0">
+            <!--global
+                  com.taobao.tddl.atom.global.${dbKey}
+              -->
 			<properties>
 				<property name="com.taobao.tddl.atom.global.andor_show_group0_atom0">
 					<value>
-					ip=10.232.31.21
+					ip=172.16.1.72
 					port=3306
-					dbName=andor_show
+					dbName=perf
 					dbType=mysql
 					dbStatus=RW
 				</value>
 				</property>
+
 				<property
 					name="com.taobao.tddl.atom.app.andor_show.andor_show_group0_atom0">
 					<value>
-					userName=andor
+					userName=root
 					minPoolSize=20
 					maxPoolSize=40
 					idleTimeout=20
@@ -38,8 +42,8 @@
 				</value>
 				</property>
 
-				<property name="com.taobao.tddl.atom.passwd.andor_show.mysql.andor">
-					<value>encPasswd=andor</value>
+				<property name="com.taobao.tddl.atom.passwd.perf.mysql.root">
+					<value>encPasswd=pmj8wd24rspM</value>
 				</property>
 			</properties>
 		</atom>

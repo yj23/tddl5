@@ -13,7 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.dao.DataAccessException;
 
-import com.taobao.diamond.mockserver.MockServer;
+//import com.taobao.diamond.mockserver.MockServer;
 import com.taobao.tddl.atom.common.TAtomConstants;
 
 public class AtomThreadRestraintTest extends AtomTestCase {
@@ -44,8 +44,8 @@ public class AtomThreadRestraintTest extends AtomTestCase {
         final Object[] args = new Object[] { RANDOM_ID };
         ExecutorService es = Executors.newFixedThreadPool(3);
 
-        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
-            " maxPoolSize=100\r\nuserName=tddl\r\nminPoolSize=1\r\nthreadCountRestrict=5\r\n");
+//        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
+//            " maxPoolSize=100\r\nuserName=tddl\r\nminPoolSize=1\r\nthreadCountRestrict=5\r\n");
         TimeUnit.SECONDS.sleep(SLEEP_TIME);
 
         for (int i = 0; i < 3; i++) {
@@ -87,8 +87,8 @@ public class AtomThreadRestraintTest extends AtomTestCase {
         final Object[] args = new Object[] { RANDOM_ID };
         ExecutorService es = Executors.newFixedThreadPool(10);
 
-        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
-            " maxPoolSize=100\r\nuserName=tddl\r\nminPoolSize=1\r\nthreadCountRestrict=2\r\n");
+//        MockServer.setConfigInfo(TAtomConstants.getAppDataId(APPNAME, DBKEY_0),
+//            " maxPoolSize=100\r\nuserName=tddl\r\nminPoolSize=1\r\nthreadCountRestrict=2\r\n");
         TimeUnit.SECONDS.sleep(SLEEP_TIME);
 
         for (int i = 0; i < 6; i++) {

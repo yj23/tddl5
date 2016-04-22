@@ -2,7 +2,7 @@ package com.taobao.tddl.statistics;
 
 import java.text.MessageFormat;
 
-public class OrignSQLOperation extends AbstractSQLOperation {
+public class OriginSOLOperation extends AbstractSQLOperation {
 
     String                            sql;
 
@@ -15,7 +15,7 @@ public class OrignSQLOperation extends AbstractSQLOperation {
 
     }
 
-    public OrignSQLOperation(String sql){
+    public OriginSOLOperation(String sql){
         super();
         this.sql = sql;
     }
@@ -31,7 +31,7 @@ public class OrignSQLOperation extends AbstractSQLOperation {
 
     @Override
     public String getOperationType() {
-        return "Orign SQL";
+        return "Origin SQL";
     }
 
 }
